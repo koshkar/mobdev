@@ -1,3 +1,17 @@
 <resources>
-    <string name="app_name">mobdev</string>
+    <string name="app_name">Список контактов</string>
+    <string name="contacts_title">Контакты</string>
+    <string name="contact_details_title">Контакт</string>
+    <string name="permission_required_title">Нет разрешения на чтение контактов</string>
+    <string name="permission_required_message">Чтобы показать список контактов, приложению нужно разрешение на их чтение. Никуда не отправляем — данные остаются на устройстве.</string>
+    <string name="permission_grant">Дать разрешение</string>
+    <string name="permission_open_settings">Открыть настройки</string>
+    <string name="permission_permanently_denied">Разрешение запрещено навсегда. Включите его вручную в настройках приложения.</string>
+    <string name="contacts_empty">Контактов на устройстве не найдено</string>
+    <string name="contacts_loading">Загрузка…</string>
+    <string name="contact_no_name">Без имени</string>
+    <string name="contact_field_phone">Телефон</string>
+    <string name="contact_field_email">E-mail</string>
+    <string name="contact_field_not_set">не указано</string>
+    <string name="action_back">Назад</string>
 </resources>
