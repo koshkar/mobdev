@@ -11,6 +11,26 @@ import androidx.core.database.getStringOrNull
 fun Context.fetchAllContacts(): List<Contact> {
     Log.d("FETCH", "fetchAllContacts called")
 
+    val emailsByContact = mutableMapOf<Long, String>()
+    contentResolver.query(
+        ContactsContract.CommonDataKinds.Email.CONTENT_URI,
+        arrayOf(
+            ContactsContract.CommonDataKinds.Email.CONTACT_ID,
+            ContactsContract.CommonDataKinds.Email.ADDRESS
+        ),
+        null,
+        null,
+        null
+    )?.use { cursor: Cursor ->
+        while (cursor.moveToNext()) {
+            val id = cursor.getLong(0)
+            val email = cursor.getStringOrNull(1)
+            if (!email.isNullOrBlank() && id !in emailsByContact) {
+                emailsByContact[id] = email
+            }
+        }
+    }
+
     return contentResolver.query(
         ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
         null,
@@ -30,10 +50,7 @@ fun Context.fetchAllContacts(): List<Contact> {
                 val phoneNumber = cursor.getStringOrNull(
                     cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER)
                 )
-                val email = cursor.getStringOrNull(
-                    cursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.ADDRESS)
-                )
-                add(Contact(id, name, phoneNumber, email))
+                add(Contact(id, name, phoneNumber, emailsByContact[id]))
             }
         }
     }
