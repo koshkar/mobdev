@@ -116,6 +116,10 @@ class MainActivity : AppCompatActivity() {
         if (storedValue == null) {
             storedValue = currentValue
         } else if (!shouldResetInput && pendingOperator != null) {
+            if (isDivisionByZero(pendingOperator!!, currentValue)) {
+                showError()
+                return
+            }
             storedValue = performCalculation(storedValue!!, currentValue, pendingOperator!!)
             currentInput = formatNumber(storedValue!!)
         }
@@ -131,6 +135,11 @@ class MainActivity : AppCompatActivity() {
         val operator = pendingOperator ?: return
         val secondValue = currentInput.toDoubleOrNull() ?: 0.0
 
+        if (isDivisionByZero(operator, secondValue)) {
+            showError()
+            return
+        }
+
         val result = performCalculation(firstValue, secondValue, operator)
 
         expressionTextView.text = "${formatNumber(firstValue)} $operator ${formatNumber(secondValue)} ="
@@ -140,6 +149,19 @@ class MainActivity : AppCompatActivity() {
         shouldResetInput = true
 
         updateDisplay()
+    }
+
+    private fun isDivisionByZero(operator: String, second: Double): Boolean {
+        return operator == "÷" && second == 0.0
+    }
+
+    private fun showError() {
+        currentInput = "0"
+        storedValue = null
+        pendingOperator = null
+        shouldResetInput = true
+        expressionTextView.text = ""
+        resultTextView.text = getString(R.string.error_division_by_zero)
     }
 
     private fun performCalculation(first: Double, second: Double, operator: String): Double {

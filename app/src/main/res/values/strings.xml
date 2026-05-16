@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Simple Calculator</string>
+    <string name="error_division_by_zero">Ошибка: деление на 0</string>
 </resources>
