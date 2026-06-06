@@ -1,3 +1,43 @@
 <resources>
-    <string name="app_name">mobdev</string>
+    <string name="app_name">Чат</string>
+
+    <string name="login_title">Вход</string>
+    <string name="login_username">Имя пользователя</string>
+    <string name="login_password">Пароль</string>
+    <string name="login_submit">Войти</string>
+    <string name="login_error_credentials">Неверный логин или пароль</string>
+    <string name="login_error_network">Нет связи с сервером. Проверьте интернет и попробуйте снова.</string>
+    <string name="login_error_dialog_title">Ошибка входа</string>
+    <string name="login_error_dialog_dismiss">Ок</string>
+
+    <string name="chats_title">Чаты</string>
+    <string name="chats_logout">Выйти</string>
+    <string name="chats_empty">Каналы не найдены</string>
+    <string name="chats_loading">Загрузка списка каналов…</string>
+    <string name="chats_retry">Повторить</string>
+    <string name="chats_error">Не удалось загрузить список каналов</string>
+    <string name="chats_placeholder_landscape">Выберите чат</string>
+    <string name="chats_channel_subtitle">%1$s · канал</string>
+    <string name="chats_dm_subtitle">Личный чат</string>
+
+    <string name="status_online">онлайн</string>
+    <string name="status_offline">офлайн</string>
+
+    <string name="messages_back">К списку чатов</string>
+    <string name="messages_empty">Сообщений пока нет</string>
+    <string name="messages_loading">Загружаем сообщения…</string>
+    <string name="messages_load_more">Загрузить ещё</string>
+    <string name="messages_loading_more">Загружаем ещё…</string>
+    <string name="messages_send_hint">Сообщение</string>
+    <string name="messages_send">Отправить</string>
+    <string name="messages_load_error">Не удалось загрузить сообщения</string>
+    <string name="messages_image_alt">Картинка</string>
+    <string name="messages_unknown_payload">[неизвестный тип сообщения]</string>
+    <string name="messages_pending">Отправка…</string>
+    <string name="messages_offline_banner">Нет сети — показаны сохранённые сообщения</string>
+    <string name="messages_queued_banner">Не отправленных сообщений в очереди: %1$d</string>
+
+    <string name="image_close">Закрыть</string>
+
+    <string name="generic_error_unknown">Что-то пошло не так</string>
 </resources>
